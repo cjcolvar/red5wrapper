@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "red5wrapper/version"
+require "red5wrapper"
 require 'bundler'
 
 Gem::Specification.new do |s|
   s.name        = "red5wrapper"
-  s.version     = GEMVERSION
+  s.version     = Red5wrapper.version
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Chris Colvard"]
   s.email       = ["cjcolvar@indiana.edu"]

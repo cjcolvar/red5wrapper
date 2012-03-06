@@ -39,6 +39,10 @@ class Red5wrapper
   # Methods outside the class << self block must be called on Red5wrapper.instance, as instance methods.
   class << self
     
+    def version
+      @version ||= File.read(File.join(File.dirname(__FILE__), '..', 'VERSION')).chomp
+    end
+
     def load_config
       if defined? Rails 
         config_name =  Rails.env 
