@@ -16,7 +16,7 @@ class Red5wrapper
   include Singleton
   include Loggable
   
-  attr_accessor :port         # What port should red5 start on? Default is 8080
+  attr_accessor :port         # What port should red5 start on? Default is 5080
   attr_accessor :red5_home   # Where is red5 located? 
   attr_accessor :startup_wait # After red5 starts, how long to wait until starting the tests? 
   attr_accessor :quiet        # Keep quiet about red5 output?
@@ -64,7 +64,7 @@ class Red5wrapper
     # Set the red5 parameters. It accepts a Hash of symbols. 
     # @param [Hash<Symbol>] params
     # @param [Symbol] :red5_home Required. Where is red5 located? 
-    # @param [Symbol] :red5_port What port should red5 start on? Default is 8080
+    # @param [Symbol] :red5_port What port should red5 start on? Default is 5080
     # @param [Symbol] :startup_wait After red5 starts, how long to wait before running tests? If you don't let red5 start all the way before running the tests, they'll fail because they can't reach red5.
     # @param [Symbol] :quiet Keep quiet about red5 output? Default is true. 
     # @param [Symbol] :java_opts A list of options to pass to the jvm 
@@ -81,7 +81,7 @@ class Red5wrapper
       end
       red5_server.red5_home = params[:red5_home] || File.expand_path(File.join(base_path, 'red5'))
       ENV['RED5_HOME'] = red5_server.red5_home
-      red5_server.port = params[:red5_port] || 8080
+      red5_server.port = params[:red5_port] || 5080
       red5_server.startup_wait = params[:startup_wait] || 5
       red5_server.java_opts = params[:java_opts] || []
       return red5_server
@@ -228,7 +228,7 @@ class Red5wrapper
         
    # What command is being run to invoke red5? 
    def red5_command
-     ["red5.sh"].flatten
+     ["./red5.sh"].flatten
    end
 
 #   def java_variables
