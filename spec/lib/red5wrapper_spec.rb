@@ -82,7 +82,7 @@ require 'rubygems'
         command = ts.red5_command
 #        command.should include("-Dred5.port=#{@red5_params[:red5_port]}")
 #        command.should include("-Xmx1024m")
-	command.should include("red5.sh")
+	command.should include("./red5.sh")
       end
 
       it "has a pid if it has been started" do
