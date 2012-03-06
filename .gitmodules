@@ -1,0 +1,3 @@
+[submodule "red5"]
+	path = red5
+	url = git://github.com/variations-on-video/hydrant-red5.git
