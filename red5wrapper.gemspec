@@ -1,11 +1,12 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "red5wrapper"
+#require "red5wrapper"
 require 'bundler'
 
 Gem::Specification.new do |s|
   s.name        = "red5wrapper"
-  s.version     = Red5wrapper.version
+  s.version	= File.read(File.join(File.dirname(__FILE__), 'VERSION')).chomp
+#  s.version     = Red5wrapper.version
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Chris Colvard"]
   s.email       = ["cjcolvar@indiana.edu"]
@@ -23,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mediashelf-loggable"
   s.add_dependency "childprocess"
   s.add_dependency "i18n"
-#  s.add_dependency "activesupport", ">=3.0.0"
+  s.add_dependency "activesupport", "~>3.0.11"
   
   # Bundler will install these gems too if you've checked this out from source from git and run 'bundle install'
   # It will not add these as dependencies if you require lyber-core for other projects
