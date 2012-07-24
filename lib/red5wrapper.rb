@@ -22,7 +22,6 @@ class Red5wrapper
   attr_accessor :quiet        # Keep quiet about red5 output?
   attr_accessor :base_path    # The root of the application. Used for determining where log files and PID files should go.
   attr_accessor :java_opts    # Options to pass to java (ex. ["-Xmx512mb", "-Xms128mb"])
-  attr_accessor :port         # The port red5 should listen on
   
   # configure the singleton with some defaults
   def initialize(params = {})
@@ -262,10 +261,12 @@ class Red5wrapper
          logger.warn "Removing stale PID file at #{pid_path}"
          File.delete(pid_path)
        end
-       if Red5wrapper.is_port_in_use?(self.port)
-         raise("Port #{self.port} is already in use.")
-       end
      end
+
+     if Red5wrapper.is_port_in_use?(self.port)
+       raise("Port #{self.port} is already in use.")
+     end
+
      Dir.chdir(@red5_home) do
        process.start
      end
